@@ -25,6 +25,7 @@ enum custom_keycodes {
   ST_MACRO_3
 };
 
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [0] = LAYOUT_split_3x6_3(
     //,-----------------------------------------------------.                    ,-----------------------------------------------------.
@@ -206,6 +207,45 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   if (record->event.pressed) {
     set_keylog(keycode, record);
   }
+  switch (keycode) {
+        case ST_MACRO_0:
+            if (record->event.pressed) {
+                // when keycode QMKBEST is pressed
+                SEND_STRING("adc"SS_TAP(X_ENTER));
+            } else {
+                // when keycode QMKBEST is released
+            }
+            break;
+
+        case ST_MACRO_1:
+            if (record->event.pressed) {
+                // when keycode QMKBEST is pressed
+                SEND_STRING("mid"SS_TAP(X_ENTER));
+            } else {
+                // when keycode QMKBEST is released
+            }
+            break;
+
+        case ST_MACRO_2:
+            if (record->event.pressed) {
+                // when keycode QMKBEST is pressed
+                SEND_STRING("top"SS_TAP(X_ENTER));
+            } else {
+                // when keycode QMKBEST is released
+            }
+            break;
+
+        case ST_MACRO_3:
+            if (record->event.pressed) {
+                // when keycode QMKBEST is pressed
+                SEND_STRING("supp"SS_TAP(X_ENTER));
+            } else {
+                // when keycode QMKBEST is released
+            }
+            break;
+        default:
+            return true;
+    }
   return true;
 }
 #endif // OLED_DRIVER_ENABLE
