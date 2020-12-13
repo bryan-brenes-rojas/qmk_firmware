@@ -9,4 +9,4 @@ Recordar usar:
 > make git-submodule  
 
 # Comandos útiles 
-> qmk flash -kb <keyboard> -km <keymap> -bl dfu
+> qmk flash -kb keyboard -km keymap -bl dfu
