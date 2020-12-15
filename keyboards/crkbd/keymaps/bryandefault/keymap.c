@@ -92,25 +92,22 @@ oled_rotation_t oled_init_user(oled_rotation_t rotation) {
 
 void oled_render_layer_state(void) {
     oled_write_P(PSTR("Layer: "), false);
-    switch (layer_state) {
-        case L_BASE:
+    switch (get_highest_layer(layer_state)) {
+        case 0:
             oled_write_ln_P(PSTR("Default"), false);
             break;
-        case L_LOWER:
+        case 1:
             oled_write_ln_P(PSTR("Lower"), false);
             break;
-        case L_RAISE:
+        case 2:
             oled_write_ln_P(PSTR("Raise"), false);
             break;
-        case L_ADJUST:
-        case L_ADJUST|L_LOWER:
-        case L_ADJUST|L_RAISE:
-        case L_ADJUST|L_LOWER|L_RAISE:
-            oled_write_ln_P(PSTR("Adjust"), false);
+        case 3:
+            oled_write_ln_P(PSTR("Gaming"), false);
             break;
     }
     led_t led_state = host_keyboard_led_state();
-    oled_write_P(led_state.caps_lock ? PSTR("CAP \n") : PSTR("    \n"), false);
+    oled_write_P(led_state.caps_lock ? PSTR("CAPS ON \n") : PSTR("    \n"), false);
 }
 
 
