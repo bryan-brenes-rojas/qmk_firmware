@@ -35,7 +35,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
         KC_LSHIFT,   LGUI_T(KC_Z),   KC_X,           LALT_T(KC_C),   KC_V,     KC_B,                         KC_N,    KC_M,    KC_COMMA,       KC_DOT,   RGUI_T(KC_SLASH),     KC_RSHIFT,
     //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                MO(2),   LT(2,KC_TAB),  KC_BSPACE,     KC_SPACE,   LT(1,KC_ENTER), MO(1)
+                                MO(2),   LT(2,KC_BSPACE),  KC_TAB,     KC_ENTER,   LT(1,KC_SPACE), MO(1)
                                         //`--------------------------'  `--------------------------'
 
     ),
@@ -66,7 +66,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [3] = LAYOUT_split_3x6_3(
     //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-        KC_DELETE, KC_1, KC_2, KC_3, KC_4, KC_5,                      KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           TO(0),
+        KC_ESCAPE, KC_1, KC_2, KC_3, KC_4, KC_5,                      KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           TO(0),
     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
         KC_TAB,    KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           KC_H,           KC_J,           KC_K,           KC_L,           KC_SCOLON,      KC_ENTER,
     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
@@ -76,36 +76,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                         //`--------------------------'  `--------------------------'
     )
 };
-
-// bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-//     switch (keycode) {
-//         case ST_MACRO_0:
-//             if (record->event.pressed) {
-//                 SEND_STRING(SS_TAP(X_ENTER));
-
-//             }
-//             break;
-//         case ST_MACRO_1:
-//             if (record->event.pressed) {
-//                 SEND_STRING(SS_TAP(X_M) SS_DELAY(100) SS_TAP(X_I) SS_DELAY(100) SS_TAP(X_D)  SS_DELAY(100) SS_TAP(X_ENTER));
-
-//             }
-//             break;
-//         case ST_MACRO_2:
-//             if (record->event.pressed) {
-//                 SEND_STRING(SS_TAP(X_T) SS_DELAY(100) SS_TAP(X_O) SS_DELAY(100) SS_TAP(X_P)  SS_DELAY(100) SS_TAP(X_ENTER));
-
-//             }
-//             break;
-//         case ST_MACRO_3:
-//             if (record->event.pressed) {
-//                 SEND_STRING(SS_TAP(X_S) SS_DELAY(100) SS_TAP(X_U) SS_DELAY(100) SS_TAP(X_P) SS_DELAY(100) SS_TAP(X_P)  SS_DELAY(100) SS_TAP(X_ENTER));
-
-//             }
-//             break;
-//     }
-//     return true;
-// }
 
 #ifdef OLED_DRIVER_ENABLE
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {
@@ -139,6 +109,8 @@ void oled_render_layer_state(void) {
             oled_write_ln_P(PSTR("Adjust"), false);
             break;
     }
+    led_t led_state = host_keyboard_led_state();
+    oled_write_P(led_state.caps_lock ? PSTR("CAP \n") : PSTR("    \n"), false);
 }
 
 
@@ -197,7 +169,7 @@ void oled_render_logo(void) {
 void oled_task_user(void) {
     if (is_master) {
         oled_render_layer_state();
-        oled_render_keylog();
+        /*oled_render_keylog();*/
     } else {
         oled_render_logo();
     }
