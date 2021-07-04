@@ -116,22 +116,22 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
         case ADC:
             if (record->event.pressed){
-              SEND_STRING('adc'SS_TAP(X_ENTER));
+              SEND_STRING("adc"SS_TAP(X_ENTER));
             }
             return true;
         case MID:
             if (record->event.pressed){
-              SEND_STRING('mid'SS_TAP(X_ENTER));
+              SEND_STRING("mid"SS_TAP(X_ENTER));
             }
             return true;
         case SUPP:
             if (record->event.pressed){
-              SEND_STRING('supp'SS_TAP(X_ENTER));
+              SEND_STRING("supp"SS_TAP(X_ENTER));
             }
             return true;
         case TOP:
             if (record->event.pressed){
-              SEND_STRING('top'SS_TAP(X_ENTER));
+              SEND_STRING("top"SS_TAP(X_ENTER));
             }
             return true;
         default:

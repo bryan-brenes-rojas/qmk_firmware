@@ -1,6 +1,7 @@
 # project specific files
 SRC = matrix.c
 SRC += config_led.c
+CFLAGS += -fcommon
 
 #For platform and packs
 ARM_ATSAM = SAMD51J18A
