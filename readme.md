@@ -14,4 +14,5 @@ Recordar usar:
 
 # Comandos útiles 
 > qmk flash -kb keyboard -km keymap -bl dfu
+
 > qmk compile -b keyboard -km keymap
