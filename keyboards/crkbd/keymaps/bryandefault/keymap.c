@@ -29,9 +29,9 @@ enum custom_keycodes {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [0] = LAYOUT_split_3x6_3(
     //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-        KC_ESCAPE,   KC_Q,         KC_W,         KC_E,         KC_R,     KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,  KC_MINUS,
+        KC_CAPSLOCK,   KC_Q,         KC_W,         KC_E,         KC_R,     KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,  KC_MINUS,
     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-        KC_CAPSLOCK, LCA_T(KC_A),  LCTL_T(KC_S), RALT_T(KC_D), KC_F,     KC_G,    KC_H,    KC_J,    RALT_T(KC_K),   RCTL_T(KC_L),   LCA_T(KC_SCOLON), KC_QUOTE,
+        KC_ESCAPE, LCA_T(KC_A),  LCTL_T(KC_S), RALT_T(KC_D), KC_F,     KC_G,    KC_H,    KC_J,    RALT_T(KC_K),   RCTL_T(KC_L),   LCA_T(KC_SCOLON), KC_QUOTE,
     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
         KC_LSHIFT,   LGUI_T(KC_Z), KC_X,         LALT_T(KC_C), KC_V,     KC_B,    KC_N,    KC_M,    KC_COMMA,       KC_DOT,   RGUI_T(KC_SLASH),     KC_RSHIFT,
     //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
