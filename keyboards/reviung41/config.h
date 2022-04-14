@@ -27,6 +27,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define PRODUCT reviung41
 #define DESCRIPTION A 41-key keyboard
 
+#define PERMISSIVE_HOLD
+#define IGNORE_MOD_TAP_INTERRUPT
+#define TAPPING_TERM 200 // 450
+
 /* key matrix size */
 #define MATRIX_ROWS 7
 #define MATRIX_COLS 6
